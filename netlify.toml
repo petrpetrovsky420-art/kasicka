@@ -1,0 +1,13 @@
+# Netlify: připoj repozitář a víc nic nastavovat nemusíš.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Service worker se musí stahovat vždy čerstvý, aby se aktualizace dostaly k lidem.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
